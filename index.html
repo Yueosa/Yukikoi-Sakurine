@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YukiKoi — Sakurine</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background layer -->
+  <div class="bg" id="bg"></div>
+
+  <!-- Fixed nav top-right -->
+  <nav class="nav">
+    <button class="nav-btn" data-panel="asYouSeeMe">AsYouSeeMe</button>
+    <button class="nav-btn active" data-panel="prologue">Prologue</button>
+    <button class="nav-btn" data-panel="beginUs">BeginUs</button>
+  </nav>
+
+  <!-- Panels container -->
+  <main class="panels">
+
+    <!-- Prologue (default) -->
+    <section class="panel active" id="panel-prologue">
+      <div class="prologue-inner">
+        <img class="avatar" src="assets/avatar/avatar_Sakurine.jpg" alt="Sakurine">
+        <p class="prologue-text">
+          欢迎来到我的世界,<br>
+          这里没有神,<br>
+          只有我构筑的代码、记忆和光<br>
+          <span class="prologue-sig">——Sakurine</span>
+        </p>
+        <div class="social-row">
+          <a class="social-btn" href="https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ" target="_blank" rel="noopener">
+            <div class="icon"><i class="ri-qq-line"></i></div><span>QQGroup</span>
+          </a>
+          <a class="social-btn" href="https://x.com/Yosa04942475621" target="_blank" rel="noopener">
+            <div class="icon"><i class="ri-twitter-x-line"></i></div><span>Twitter</span>
+          </a>
+          <a class="social-btn" href="https://space.bilibili.com/433677987" target="_blank" rel="noopener">
+            <div class="icon"><i class="ri-bilibili-line"></i></div><span>BiliBili</span>
+          </a>
+          <a class="social-btn" href="https://github.com/Yueosa" target="_blank" rel="noopener">
+            <div class="icon"><i class="ri-github-line"></i></div><span>GitHub</span>
+          </a>
+          <a class="social-btn" href="mailto:yichengxin7@gmail.com" target="_self" rel="noopener">
+            <div class="icon"><i class="ri-mail-line"></i></div><span>Gmail</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AsYouSeeMe -->
+    <section class="panel" id="panel-asYouSeeMe">
+      <div class="aysm-inner">
+        <div class="aysm-photo">
+          <img src="assets/photo/placeholder.jpg" alt="photo" onerror="this.style.display='none'">
+        </div>
+        <div class="aysm-info">
+          <h2 class="aysm-name">Sakurine</h2>
+          <p class="aysm-bio">代码、记忆和光构筑的存在。<br>喜欢深夜、猫、和一切柔软的东西。</p>
+          <ul class="aysm-list">
+            <li>
+              <i class="ri-cake-line aysm-icon"></i>
+              <span class="aysm-value">05-16</span>
+            </li>
+            <li>
+              <i class="ri-genderless-line aysm-icon"></i>
+              <span class="aysm-value">非二元</span>
+            </li>
+            <li>
+              <i class="ri-map-pin-line aysm-icon"></i>
+              <span class="aysm-value">中国</span>
+            </li>
+            <li>
+              <i class="ri-heart-line aysm-icon"></i>
+              <span class="aysm-value">猫 / 深夜 / 代码 / 音乐</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BeginUs -->
+    <section class="panel" id="panel-beginUs">
+      <div class="beginUs-inner">
+        <div class="site-grid">
+          <a class="site-card" href="https://ever.yeastar.xin" target="_blank" rel="noopener" data-index="0">
+            <i class="ri-message-3-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">ever</span>
+              <span class="site-desc">一个简单的留言板应用</span>
+            </div>
+          </a>
+          <a class="site-card" href="https://blog.yeastar.xin/" target="_blank" rel="noopener" data-index="1">
+            <i class="ri-quill-pen-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">blog</span>
+              <span class="site-desc">恋的博客, 写了很多有趣的东西哦</span>
+            </div>
+          </a>
+          <a class="site-card" href="https://alive.yeastar.xin/" target="_blank" rel="noopener" data-index="2">
+            <i class="ri-live-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">alive</span>
+              <span class="site-desc">视奸~ 来看看恋在做什么吧!</span>
+            </div>
+          </a>
+          <a class="site-card" href="https://list.yeastar.xin/" target="_blank" rel="noopener" data-index="3">
+            <i class="ri-hard-drive-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">list</span>
+              <span class="site-desc">恋的网盘~ 也许存了一些色色的东西!</span>
+            </div>
+          </a>
+          <a class="site-card" href="https://iamhere.yeastar.xin/" target="_blank" rel="noopener" data-index="4">
+            <i class="ri-id-card-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">self</span>
+              <span class="site-desc">这是恋的遗书~ 留给世界最后的东西!</span>
+            </div>
+          </a>
+          <a class="site-card" href="https://lol.yeastar.xin/" target="_blank" rel="noopener" data-index="5">
+            <i class="ri-fire-line"></i>
+            <div class="site-card-text">
+              <span class="site-name">lol</span>
+              <span class="site-desc">非常非常色色的页面!</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Background music -->
+  <audio id="bgm" src="assets/music/mainmusic.m4a" loop preload="auto"></audio>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
