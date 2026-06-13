@@ -1,0 +1,111 @@
+/* Shared carousel used by both the Projects and Wander panels */
+.wander-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+.wander-head { text-align: center; }
+.wander-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--petal-blue);
+  letter-spacing: 2px;
+}
+.wander-sub {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #8a8aa0;
+}
+
+/* Viewport masks the edges; the track is translated each frame from JS */
+.wander-viewport {
+  width: 100vw;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.wander-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding: 12px 22px;
+  will-change: transform;
+}
+
+.wander-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 340px;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 24px rgba(108, 144, 196, 0.22);
+  text-decoration: none;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.wander-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 36px rgba(108, 144, 196, 0.4);
+}
+.wander-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 24, 40, 0) 30%, rgba(20, 24, 40, 0.82) 100%);
+  transition: background 0.35s ease;
+}
+.wander-card:hover .wander-card-shade {
+  background: linear-gradient(180deg, rgba(20, 24, 40, 0.15) 0%, rgba(20, 24, 40, 0.9) 100%);
+}
+.wander-card-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px 20px;
+  color: #fff;
+}
+.wander-card-tag {
+  font-size: 0.66rem;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+.wander-card-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.wander-card-desc {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+.wander-card-go {
+  margin-top: 12px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.wander-card:hover .wander-card-go {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .nav { top: 16px; right: 16px; }
+  .nav-btn { font-size: 0.75rem; }
+  .wander-card { width: 280px; height: 188px; }
+  .wander-title { font-size: 1.5rem; }
+}

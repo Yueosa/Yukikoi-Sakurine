@@ -3,143 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YukiKoi — Sakurine</title>
+  <title>YukiKoi</title>
   <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=640" type="image/png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/prologue.css">
+  <link rel="stylesheet" href="css/cards.css">
 </head>
 <body>
 
-  <!-- Background layer -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-title">YukiKoi</div>
+      <div class="loader-ecg">
+        <svg viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+          <path class="ecg-track" d="M0,100 H1000" />
+          <path class="ecg-line ecg-blue" d="M0,100 H1000" />
+          <path class="ecg-line ecg-pulse" d="M0,100 H300 L314,90 L326,118 L340,100 L352,100 L362,120 L374,6 L386,178 L396,150 L408,104 L420,100 L444,100 L462,88 L484,100 H760 L772,94 L784,114 L796,100 L808,100 L816,106 L826,78 L836,120 L846,100 H1000" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
   <div class="bg" id="bg"></div>
 
-  <!-- Fixed nav top-right -->
   <nav class="nav">
-    <button class="nav-btn" data-panel="asYouSeeMe">AsYouSeeMe</button>
+    <button class="nav-btn" data-panel="asYouSeeMe">Projects</button>
     <button class="nav-btn active" data-panel="prologue">Prologue</button>
-    <button class="nav-btn" data-panel="beginUs">BeginUs</button>
+    <button class="nav-btn" data-panel="wander">Wander</button>
   </nav>
 
-  <!-- Panels container -->
   <main class="panels">
-
-    <!-- Prologue (default) -->
     <section class="panel active" id="panel-prologue">
       <div class="prologue-inner">
-        <img class="avatar" src="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=640" alt="Sakurine">
-        <p class="prologue-text">
-          欢迎来到我的世界,<br>
-          这里没有神,<br>
-          只有我构筑的代码、记忆和光<br>
-          <span class="prologue-sig">——Sakurine</span>
-        </p>
-        <div class="social-row">
-          <a class="social-btn" href="https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ" target="_blank" rel="noopener">
-            <div class="icon"><i class="ri-qq-line"></i></div><span>QQGroup</span>
-          </a>
-          <a class="social-btn" href="https://x.com/Yosa04942475621" target="_blank" rel="noopener">
-            <div class="icon"><i class="ri-twitter-x-line"></i></div><span>Twitter</span>
-          </a>
-          <a class="social-btn" href="https://space.bilibili.com/433677987" target="_blank" rel="noopener">
-            <div class="icon"><i class="ri-bilibili-line"></i></div><span>BiliBili</span>
-          </a>
-          <a class="social-btn" href="https://github.com/Yueosa" target="_blank" rel="noopener">
-            <div class="icon"><i class="ri-github-line"></i></div><span>GitHub</span>
-          </a>
-          <a class="social-btn" href="mailto:yichengxin7@gmail.com" target="_self" rel="noopener">
-            <div class="icon"><i class="ri-mail-line"></i></div><span>Gmail</span>
-          </a>
+        <div class="top">
+          <img class="avatar" id="profileAvatar" alt="avatar">
+          <div class="info" id="profileInfo"></div>
         </div>
+        <div class="button-group" id="socialLinks"></div>
       </div>
     </section>
 
-    <!-- AsYouSeeMe -->
     <section class="panel" id="panel-asYouSeeMe">
-      <div class="aysm-inner">
-        <div class="aysm-photo">
-          <img src="assets/photo/placeholder.jpg" alt="photo" onerror="this.style.display='none'">
+      <div class="wander-inner">
+        <div class="wander-head">
+          <h2 class="wander-title" id="projectsTitle"></h2>
+          <p class="wander-sub" id="projectsSub"></p>
         </div>
-        <div class="aysm-info">
-          <h2 class="aysm-name">Sakurine</h2>
-          <p class="aysm-bio">代码、记忆和光构筑的存在。<br>喜欢深夜、猫、和一切柔软的东西。</p>
-          <ul class="aysm-list">
-            <li>
-              <i class="ri-cake-line aysm-icon"></i>
-              <span class="aysm-value">05-16</span>
-            </li>
-            <li>
-              <i class="ri-genderless-line aysm-icon"></i>
-              <span class="aysm-value">非二元</span>
-            </li>
-            <li>
-              <i class="ri-map-pin-line aysm-icon"></i>
-              <span class="aysm-value">中国</span>
-            </li>
-            <li>
-              <i class="ri-heart-line aysm-icon"></i>
-              <span class="aysm-value">猫 / 深夜 / 代码 / 音乐</span>
-            </li>
-          </ul>
+        <div class="wander-viewport">
+          <div class="wander-track" id="projectsTrack"></div>
         </div>
       </div>
     </section>
 
-    <!-- BeginUs -->
-    <section class="panel" id="panel-beginUs">
-      <div class="beginUs-inner">
-        <div class="site-grid">
-          <a class="site-card" href="https://ever.yeastar.xin" target="_blank" rel="noopener" data-index="0">
-            <i class="ri-message-3-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">ever</span>
-              <span class="site-desc">一个简单的留言板应用</span>
-            </div>
-          </a>
-          <a class="site-card" href="https://blog.yeastar.xin/" target="_blank" rel="noopener" data-index="1">
-            <i class="ri-quill-pen-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">blog</span>
-              <span class="site-desc">恋的博客, 写了很多有趣的东西哦</span>
-            </div>
-          </a>
-          <a class="site-card" href="https://alive.yeastar.xin/" target="_blank" rel="noopener" data-index="2">
-            <i class="ri-live-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">alive</span>
-              <span class="site-desc">视奸~ 来看看恋在做什么吧!</span>
-            </div>
-          </a>
-          <a class="site-card" href="https://list.yeastar.xin/" target="_blank" rel="noopener" data-index="3">
-            <i class="ri-hard-drive-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">list</span>
-              <span class="site-desc">恋的网盘~ 也许存了一些色色的东西!</span>
-            </div>
-          </a>
-          <a class="site-card" href="https://iamhere.yeastar.xin/" target="_blank" rel="noopener" data-index="4">
-            <i class="ri-id-card-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">self</span>
-              <span class="site-desc">这是恋的遗书~ 留给世界最后的东西!</span>
-            </div>
-          </a>
-          <a class="site-card" href="https://lol.yeastar.xin/" target="_blank" rel="noopener" data-index="5">
-            <i class="ri-fire-line"></i>
-            <div class="site-card-text">
-              <span class="site-name">lol</span>
-              <span class="site-desc">非常非常色色的页面!</span>
-            </div>
-          </a>
+    <section class="panel" id="panel-wander">
+      <div class="wander-inner">
+        <div class="wander-head">
+          <h2 class="wander-title" id="wanderTitle"></h2>
+          <p class="wander-sub" id="wanderSub"></p>
+        </div>
+        <div class="wander-viewport">
+          <div class="wander-track" id="wanderTrack"></div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Background music -->
-  <audio id="bgm" src="assets/music/mainmusic.m4a" loop preload="auto"></audio>
+  <button class="page-arrow page-arrow-left" id="arrowPrev" aria-label="上一页"></button>
+  <button class="page-arrow page-arrow-right" id="arrowNext" aria-label="下一页"></button>
 
+  <audio id="bgm" loop preload="auto"></audio>
+
+  <script src="js/config.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/carousel.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

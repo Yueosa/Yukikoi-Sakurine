@@ -1,0 +1,23 @@
+/* Design tokens, reset and document defaults */
+:root {
+  --sky-blue: #c5d5f7;
+  --dream-white: #f6f6f6;
+  --gray-purple: #d1cde3;
+  --petal-blue: #6c90c4;
+  --orange-yellow: #f3b969;
+  --ribbon-blue: #5a9bc6;
+  --font: 'Noto Sans JP', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+body {
+  font-family: var(--font);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+  color: #333;
+}
