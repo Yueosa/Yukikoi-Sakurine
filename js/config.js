@@ -52,7 +52,6 @@ window.YK.data = {
       { tag: 'alive.yeastar.xin',   name: 'alive', desc: '视奸~ 来看看恋在做什么吧!',        href: 'https://alive.yeastar.xin/',   image: 'assets/photo/wander/alive.webp' },
       { tag: 'list.yeastar.xin',    name: 'list',  desc: '恋的网盘~ 也许存了一些色色的东西!', href: 'https://list.yeastar.xin/',   image: 'assets/photo/wander/list.webp' },
       { tag: 'iamhere.yeastar.xin', name: 'self',  desc: '这是恋的遗书~ 留给世界最后的东西!', href: 'https://iamhere.yeastar.xin/', image: 'assets/photo/wander/self.webp' },
-      { tag: 'lol.yeastar.xin',     name: 'lol',   desc: '非常非常色色的页面!',              href: 'https://lol.yeastar.xin/',     image: 'assets/photo/wander/lol.webp' },
     ],
   },
 };
