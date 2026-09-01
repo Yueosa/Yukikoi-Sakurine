@@ -16,7 +16,7 @@ window.YK.data = {
 
   // Accordion social buttons; `brand` tints the icon and label on hover
   links: [
-    { label: 'QQGroup', icon: 'assets/icons/qq-line.svg',       brand: '#12b7f5', target: '_blank', href: 'https://qm.qq.com/cgi-bin/qm/qr?k=O6KD1bt5WDvQw47kzjaDuYIASzar_y-F&jump_from=webapi&authKey=AnF+0ddOwtFY4laf9lDJ9Om7tj5oZE2dfuHJlQfOO2CXaeTOOVdJxlxIg9wSs4WQ' },
+    { label: 'QQ',       icon: 'assets/icons/qq-line.svg',       brand: '#12b7f5', target: '_self',  href: 'tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1303028790' },
     { label: 'Twitter',  icon: 'assets/icons/twitter-line.svg',  brand: '#000000', target: '_blank', href: 'https://x.com/Yosa04942475621' },
     { label: 'BiliBili', icon: 'assets/icons/bilibili-line.svg', brand: '#fb7299', target: '_blank', href: 'https://space.bilibili.com/433677987' },
     { label: 'GitHub',   icon: 'assets/icons/github-line.svg',   brand: '#333333', target: '_blank', href: 'https://github.com/Yueosa' },
