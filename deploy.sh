@@ -119,7 +119,8 @@ payload_hash() {
 }
 
 verify_source() {
-    local source="$1" metadata="$source/.version"
+    local source="$1"
+    local metadata="$source/.version"
     [[ -f "$metadata" ]] || die "仓库缺少 .version"
     local expected actual version
     version="$(version_field "$metadata" version)"
