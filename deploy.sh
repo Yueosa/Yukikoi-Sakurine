@@ -376,7 +376,8 @@ write_release_metadata() {
 main_menu() {
     require_root
     while true; do
-        clear
+        # ANSI clear works even when the SSH client's TERM entry is absent remotely.
+        printf '\033[2J\033[H'
         load_env
         title "Yukikoi ${INSTALLED_VERSION:-未安装} — 管理面板"
         sep
