@@ -1,0 +1,76 @@
+/* Entrance after the prelude, one-time section reveals and reduced-motion overrides. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(var(--rise, 34px)); }
+}
+
+@keyframes slide {
+  from { opacity: 0; transform: translateX(var(--slide, 24px)); }
+}
+
+.has-entered .masthead {
+  --rise: -100%;
+  animation: rise .8s var(--ease-out) .15s backwards;
+}
+
+.has-entered .cover__kicker {
+  --rise: 28px;
+  animation: rise .75s var(--ease-out) .28s backwards;
+}
+
+.has-entered .cover__title {
+  --rise: 28px;
+  animation: rise 1s var(--ease-out) .4s backwards;
+}
+
+.has-entered .quote {
+  --rise: 28px;
+  animation: rise .9s var(--ease-out) .66s backwards;
+}
+
+.has-entered .pulse {
+  --slide: 38px;
+  animation: slide 1.05s var(--ease-out) .32s backwards;
+}
+
+.has-entered .socials li {
+  animation: slide .58s var(--ease-out) .72s backwards;
+}
+
+.has-entered .socials li:nth-child(2) { animation-delay: .79s; }
+.has-entered .socials li:nth-child(3) { animation-delay: .86s; }
+.has-entered .socials li:nth-child(4) { animation-delay: .93s; }
+.has-entered .socials li:nth-child(5) { animation-delay: 1s; }
+
+.has-reveal [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+}
+
+.has-reveal [data-reveal].is-revealed {
+  animation: rise .78s var(--ease-out) var(--reveal-delay, 0s) backwards;
+}
+
+.has-reveal .section__head.is-revealed {
+  animation-duration: .85s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .prelude {
+    display: none;
+  }
+
+  .pulse__signal {
+    stroke-dasharray: none;
+    opacity: 1;
+  }
+}

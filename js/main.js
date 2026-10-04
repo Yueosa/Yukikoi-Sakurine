@@ -1,38 +1,35 @@
-/**
- * Bootstrap: render the page from config, wire up audio gating, then start the
- * loader, navigation and carousels.
- */
+/* Wires the modules; each runs in isolation so one failure never keeps the page hidden. */
 (() => {
-  const { data, render, initLoader, initNavigation, initCarousel } = window.YK;
+  const { root } = YK;
 
-  render(data);
-  initNavigation();
-  initCarousel();
-
-  // Background music only unlocks at the reveal moment; clicks during loading are
-  // ignored, and if autoplay is blocked the next user gesture starts playback.
-  const bgm = document.getElementById('bgm');
-  let unlocked = false;
-  let playing = false;
-  const startMusic = () => {
-    if (playing || !unlocked) return;
-    bgm.volume = 0.5;
-    bgm.play().then(() => {
-      playing = true;
-      document.removeEventListener('click', startMusic);
-      document.removeEventListener('keydown', startMusic);
-    }).catch(() => {});
+  const run = (name, task) => {
+    try {
+      return task();
+    } catch (error) {
+      console.error(`[yukikoi] ${name}`, error);
+      return undefined;
+    }
   };
-  document.addEventListener('click', startMusic);
-  document.addEventListener('keydown', startMusic);
 
-  initLoader({
-    bgm,
-    onReveal() {
-      document.body.classList.add('loaded');
-      document.getElementById('panel-prologue').classList.add('intro');
-      unlocked = true;
-      startMusic();
-    },
+  run('title', () => {
+    const title = document.querySelector('title');
+    const home = title.textContent;
+    const { away } = title.dataset;
+    if (!away) return;
+    const update = () => {
+      document.title = document.hidden ? away : home;
+    };
+    document.addEventListener('visibilitychange', update);
+    update();
   });
+  run('progress', () => YK.progress.init());
+  run('reveal', () => YK.reveal.init());
+  run('album', () => YK.album.init());
+
+  const entered = run('prelude', () => YK.prelude.start());
+  if (!entered) {
+    root.classList.remove('is-intro');
+    root.classList.add('has-entered');
+  }
+  Promise.resolve(entered).then(() => run('pulse', () => YK.pulse.init()));
 })();

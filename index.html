@@ -1,87 +1,340 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YukiKoi</title>
-  <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=640" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/loader.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/prologue.css">
-  <link rel="stylesheet" href="css/cards.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-away="唔, 不看我了吗...Ծ‸Ծ">YukiKoi</title>
+  <meta name="description" content="恋 / Sakurine 的个人站点：项目、短文、生活碎片与其他站点。">
+  <meta name="theme-color" content="#f3efe7">
+  <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=140">
+  <script src="js/boot.js?v=2.0.0"></script>
+  <link rel="stylesheet" href="css/base.css?v=2.0.0">
+  <link rel="stylesheet" href="css/prelude.css?v=2.0.0">
+  <link rel="stylesheet" href="css/masthead.css?v=2.0.0">
+  <link rel="stylesheet" href="css/cover.css?v=2.0.0">
+  <link rel="stylesheet" href="css/sections.css?v=2.0.0">
+  <link rel="stylesheet" href="css/album.css?v=2.0.0">
+  <link rel="stylesheet" href="css/viewer.css?v=2.0.0">
+  <link rel="stylesheet" href="css/motion.css?v=2.0.0">
+  <script defer src="js/core.js?v=2.0.0"></script>
+  <script defer src="js/prelude.js?v=2.0.0"></script>
+  <script defer src="js/pulse.js?v=2.0.0"></script>
+  <script defer src="js/progress.js?v=2.0.0"></script>
+  <script defer src="js/reveal.js?v=2.0.0"></script>
+  <script defer src="js/viewer.js?v=2.0.0"></script>
+  <script defer src="js/album.js?v=2.0.0"></script>
+  <script defer src="js/main.js?v=2.0.0"></script>
 </head>
 <body>
-
-  <div class="loader" id="loader">
-    <div class="loader-inner">
-      <div class="loader-title">YukiKoi</div>
-      <div class="loader-ecg">
-        <svg viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
-          <path class="ecg-track" d="M0,100 H1000" />
-          <path class="ecg-line ecg-blue" d="M0,100 H1000" />
-          <path class="ecg-line ecg-pulse" d="M0,100 H300 L314,90 L326,118 L340,100 L352,100 L362,120 L374,6 L386,178 L396,150 L408,104 L420,100 L444,100 L462,88 L484,100 H760 L772,94 L784,114 L796,100 L808,100 L816,106 L826,78 L836,120 L846,100 H1000" />
-        </svg>
-      </div>
+  <div class="prelude" data-prelude aria-hidden="true">
+    <div class="prelude__core"></div>
+    <div class="prelude__stage">
+      <p class="prelude__title"><span class="prelude__kicker">AN UNFINISHED PORTRAIT</span><strong class="prelude__name">恋的<br>未完诗</strong></p>
+    </div>
+    <div class="prelude__trace">
+      <svg viewBox="0 0 1200 116" preserveAspectRatio="none" focusable="false">
+        <path class="trace trace--track" d="M0 61H1200"/>
+        <path class="trace trace--calm" pathLength="1" d="M0 61H1200"/>
+        <path class="trace trace--beat" pathLength="1" d="M0 61H555 C578 61 590 58 608 55 C626 52 638 62 654 61 H684 L699 53 L713 76 L729 14 L745 106 L762 38 L780 74 L798 60 L820 63 H880 C904 63 917 55 934 52 C954 49 967 61 988 61 H1200"/>
+      </svg>
+      <span class="prelude__signal">SIGNAL / YUKIKOI</span>
     </div>
   </div>
 
-  <div class="bg" id="bg"></div>
+  <div class="page" data-page>
+    <header class="masthead">
+      <button class="progress" type="button" data-progress aria-label="阅读进度，点击返回顶部">
+        <span class="progress__label" data-progress-label>HOME</span>
+        <span class="progress__rail"><i class="progress__fill" data-progress-fill></i></span>
+        <span class="progress__value" data-progress-value>00%</span>
+      </button>
+      <strong class="masthead__brand">YUKIKOI</strong>
+      <nav class="masthead__nav" aria-label="页面导航">
+        <a href="#works">Projects</a>
+        <a href="#stories">Stories</a>
+        <a href="#sites">Sites</a>
+        <button class="masthead__album" type="button" data-album-open>Fragments</button>
+      </nav>
+    </header>
 
-  <nav class="nav">
-    <button class="nav-btn" data-panel="asYouSeeMe">Projects</button>
-    <button class="nav-btn active" data-panel="prologue">Prologue</button>
-    <button class="nav-btn" data-panel="wander">Wander</button>
-  </nav>
-
-  <main class="panels">
-    <section class="panel active" id="panel-prologue">
-      <div class="prologue-inner">
-        <div class="top">
-          <img class="avatar" id="profileAvatar" alt="avatar">
-          <div class="info" id="profileInfo"></div>
+    <main>
+      <section class="cover" data-progress-section="HOME">
+        <div class="cover__copy">
+          <p class="cover__kicker">LIAN / SAKURINE — PERSONAL SITE</p>
+          <h1 class="cover__title">LIAN<i>恋</i></h1>
+          <figure class="quote">
+            <button class="quote__avatar" type="button" data-album-open aria-label="打开相册">
+              <img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=640" srcset="https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=140 140w, https://q1.qlogo.cn/g?b=qq&amp;nk=1303028790&amp;s=640 640w" sizes="(max-width: 820px) 80px, 120px" width="120" height="120" alt="恋的头像" decoding="async">
+            </button>
+            <blockquote class="quote__text"><p>欢迎来到我的世界，这里没有神，只有我构筑的代码、记忆和光。</p></blockquote>
+            <figcaption class="quote__by">—— Sakurine</figcaption>
+          </figure>
         </div>
-        <div class="button-group" id="socialLinks"></div>
+        <aside class="cover__aside">
+          <div class="pulse" data-pulse aria-hidden="true">
+            <svg viewBox="0 0 782 500" focusable="false">
+              <path class="pulse__signal" data-pulse-signal pathLength="1" d="M0 260 H150 L170 244 L188 269 L215 260 H305 L322 232 L342 344 L364 54 L387 444 L411 234 L436 306 L464 260 H569 L589 248 L607 269 L631 202 L654 308 L682 260 H782"/>
+            </svg>
+          </div>
+          <ul class="socials" aria-label="社交账号">
+            <li><a href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1303028790"><span>QQ</span><b aria-hidden="true">01 ↗</b></a></li>
+            <li><a href="mailto:yichengxin7@gmail.com"><span>GMAIL</span><b aria-hidden="true">02 ↗</b></a></li>
+            <li><a href="https://github.com/Yueosa" target="_blank" rel="noopener"><span>GITHUB</span><b aria-hidden="true">03 ↗</b></a></li>
+            <li><a href="https://x.com/Yosa04942475621" target="_blank" rel="noopener"><span>X / TWITTER</span><b aria-hidden="true">04 ↗</b></a></li>
+            <li><a href="https://space.bilibili.com/433677987" target="_blank" rel="noopener"><span>BILIBILI</span><b aria-hidden="true">05 ↗</b></a></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" id="works" data-progress-section="WORKS">
+        <header class="section__head" data-reveal><span class="section__index">01</span><h2 class="section__title">六个持续生长的项目</h2></header>
+        <ul class="works">
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/.lian" target="_blank" rel="noopener">
+              <span class="work__meta"><span>SYSTEM / WAYLAND</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">.lian</h3>
+              <p class="work__desc">Hyprland、Wayland 与 Quickshell 组成的私人桌面秩序。</p>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/lya" target="_blank" rel="noopener">
+              <span class="work__meta"><span>AGENT / MEMORY</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">lya</h3>
+              <p class="work__desc">为自己写的轻量 Agent 应用，围绕工具、长期记忆和分支对话展开。</p>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/Dress" target="_blank" rel="noopener">
+              <span class="work__meta"><span>COMMUNITY / MAINTAINER</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">Dress</h3>
+              <p class="work__desc">著名女装项目。以维护者身份参与一个长久而独特的开源社区。</p>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/Yukikoi-Sakurine" target="_blank" rel="noopener">
+              <span class="work__meta"><span>IDENTITY / WEB</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">Yukikoi</h3>
+              <p class="work__desc">个人主页，也是关于数字身份与视觉语言的一次长期实验。</p>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/YukiLog" target="_blank" rel="noopener">
+              <span class="work__meta"><span>RUST / SVELTE</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">YukiLog</h3>
+              <p class="work__desc">追求性能和完全自控力的全栈博客系统，一座开发者数字花园。</p>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="work" href="https://github.com/Yueosa/lianwall" target="_blank" rel="noopener">
+              <span class="work__meta"><span>RUST / WAYLAND</span><span aria-hidden="true">↗</span></span>
+              <h3 class="work__name">lianwall</h3>
+              <p class="work__desc">有记忆的壁纸管理器，用黄金角算法避开无意义的随机重复。</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="stories" data-progress-section="STORIES">
+        <header class="section__head" data-reveal><span class="section__index">02</span><h2 class="section__title">项目之外，也可以留下人</h2></header>
+        <div class="stories">
+          <article class="story" data-reveal>
+            <span class="story__kicker">PORTRAIT / 自我介绍</span>
+            <h3 class="story__title">让技术之外的部分被看见</h3>
+            <p>我一直很难用一个职业或者几个标签描述自己。</p>
+            <p>我写程序，会研究编程语言、操作系统和计算机底层机制；折腾自己的 Arch Linux 与 Wayland 桌面，也曾在 Minecraft 里从红石逻辑一路搭出一颗 CPU。我喜欢认真理解一个项目的架构，写自己认可的 PR，也会做一些并没有多少人需要的小工具。</p>
+            <p>但技术不是我的全部。我会女装，研究衣服、搭配和自己的外在表达；也会玩游戏、做饭，留意睡眠、饮食和身体发出的信号。我会思考死亡、灵魂、自由、AI、经济与社会，以及人与人为什么会变成现在这样。</p>
+            <p>我好像总是对「事情为什么会这样」抱有一点执着。一个系统如此，一件衣服如此，一个人的行为也是如此。比起接受现成的解释，我更喜欢自己走进去理解、拆开，再按照自己的想法重新组合。</p>
+            <p>所以这里不会只有代码。这里会留下我的作品、一些思考，也会留下一个普通人在认真生活时留下的痕迹。</p>
+          </article>
+          <article class="story" data-reveal>
+            <span class="story__kicker">CONNECTION / 交友短文</span>
+            <h3 class="story__title">关于如何与我相遇</h3>
+            <p>我很难亲近的是那些没有好奇心、没有自己的判断，把生活完全交给群体默认值的人。</p>
+            <p>你不需要懂很多技术，也不需要和我拥有完全相同的兴趣；但希望你对自己的生活有判断，愿意认真思考，也愿意聊一些没有标准答案的话题。</p>
+            <p>我喜欢从一件具体的小事一路聊到它背后的原理，也喜欢交换各自正在研究、制作或单纯着迷的东西。计算机、Linux、游戏、衣服与搭配、做饭、经济、生活，以及那些突然冒出来的奇怪问题，都可以成为话题。</p>
+            <p>你可以告诉我你知道什么，但我希望决定权仍然留在我手里。对我而言，尊重一个人的方式和边界，比替他找到最快的答案更重要。</p>
+            <p>比起互相提供信息、资源或者「价值」，我更希望人与人之间是真的在认识彼此。慢一点没关系，不必刻意迎合，也不用把聊天变成社交任务。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="sites" data-progress-section="SITES">
+        <header class="section__head" data-reveal><span class="section__index">03</span><h2 class="section__title">我的其他站点</h2></header>
+        <ul class="sites">
+          <li class="site" data-reveal><strong class="site__name">Site / 01</strong><span class="site__status">MIGRATING · URL PENDING</span></li>
+          <li class="site" data-reveal><strong class="site__name">Site / 02</strong><span class="site__status">MIGRATING · URL PENDING</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>YUKIKOI — LIAN / 恋</span><span>© 2026 SAKURINE</span></footer>
+  </div>
+
+  <aside class="album" data-album aria-label="碎片相册" inert>
+    <div class="album__scroll">
+      <header class="album__bar">
+        <span class="album__count" data-album-count>30 PHOTOS · 04 FILMS</span>
+        <strong class="album__brand">YUKIKOI / FRAGMENTS</strong>
+        <button class="album__close" type="button" data-album-close>Return →</button>
+      </header>
+      <section class="album__hero">
+        <h2 class="album__title">我的<i>碎片</i></h2>
+        <p class="album__intro"><strong>NOT A COMPLETE PORTRAIT</strong>照片、游戏、衣服、猫、代码和一些偶然被保存下来的光。它们不是解释，只是我愿意留下的生活切片。</p>
+      </section>
+      <ol class="album__grid" data-album-grid hidden>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-23.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-23.webp" width="640" height="1138" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">关于形象</span><span class="media-card__tag">SELF</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-01.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-01.webp" width="640" height="1422" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">雾与森林</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-12.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-12.webp" width="640" height="360" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">逻辑电路</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-24.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-24.webp" width="640" height="853" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">衣服与搭配</span><span class="media-card__tag">SELF</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/film/cat.mp4" data-kind="film">
+          <span class="media-card__frame"><img src="assets/album/thumb/film-cat.webp?v=2.0.1" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">猫 / 16 秒</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-09.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-09.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">键盘上的猫</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-28.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-28.webp" width="640" height="360" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">Minecraft / 建筑</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-02.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-02.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">一顿火锅</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-17.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-17.webp" width="640" height="1137" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">雨后的楼</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-25.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-25.webp" width="640" height="1418" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">红与黑</span><span class="media-card__tag">SELF</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-06.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-06.webp" width="640" height="348" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">Lian World</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/film/desktop.mp4" data-kind="film">
+          <span class="media-card__frame"><img src="assets/album/thumb/film-desktop.webp?v=2.0.1" width="640" height="360" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">桌面与系统</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-20.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-20.webp" width="640" height="1422" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">凝视</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-19.webp?v=2.0.1" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-19.webp?v=2.0.1" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">在路上</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-21.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-21.webp" width="640" height="1138" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">电路与开发板</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/full/photo-26.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-26.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">我的房间</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-14.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-14.webp" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">纸鹤</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-11.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-11.webp" width="640" height="360" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">Minecraft / 光</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-27.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-27.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">猫</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-18.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-18.webp" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">傍晚</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/film/mc.mp4" data-kind="film">
+          <span class="media-card__frame"><img src="assets/album/thumb/film-mc.webp?v=2.0.1" width="640" height="360" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">Minecraft / 红石</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-04.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-04.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">猫与书</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-07.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-07.webp" width="640" height="1415" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">游戏时间</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-22.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-22.webp" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">院子</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-10.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-10.webp" width="640" height="825" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">Agent Loop</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-13.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-13.webp" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">旧日天空</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-03.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-03.webp" width="640" height="1422" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">机器人</span><span class="media-card__tag">BUILD</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-16.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-16.webp" width="640" height="480" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">云层</span><span class="media-card__tag">SCENE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-15.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-15.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">为你照亮整片黑夜</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card media-card--featured" href="assets/album/film/miao.mp4" data-kind="film">
+          <span class="media-card__frame"><img src="assets/album/thumb/film-miao.webp?v=2.0.1" width="640" height="1422" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">打盹</span><span class="media-card__tag">LIFE</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-29.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-29.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">动画</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-30.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-30.webp" width="640" height="288" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">相遇</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-08.webp?v=2.0.1" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-08.webp?v=2.0.1" width="640" height="654" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">VRChat</span><span class="media-card__tag">PLAY</span></span>
+        </a></li>
+        <li><a class="media-card" href="assets/album/full/photo-05.webp" data-kind="photo">
+          <span class="media-card__frame"><img src="assets/album/thumb/photo-05.webp" width="640" height="1372" alt="" loading="lazy" decoding="async"></span>
+          <span class="media-card__caption"><span class="media-card__title">留下的一帧</span><span class="media-card__tag">FRAGMENT</span></span>
+        </a></li>
+      </ol>
+    </div>
+  </aside>
+
+  <dialog class="viewer" data-viewer aria-label="碎片预览">
+    <div class="viewer__head">
+      <span data-viewer-index>FRAGMENT / 01</span>
+      <button class="viewer__button" type="button" data-viewer-close autofocus>Close ×</button>
+    </div>
+    <div class="viewer__stage" data-viewer-stage></div>
+    <div class="viewer__foot">
+      <span data-viewer-caption></span>
+      <div class="viewer__controls">
+        <button class="viewer__button" type="button" data-viewer-step="-1">← Prev</button>
+        <button class="viewer__button" type="button" data-viewer-step="1">Next →</button>
       </div>
-    </section>
-
-    <section class="panel" id="panel-asYouSeeMe">
-      <div class="wander-inner">
-        <div class="wander-head">
-          <h2 class="wander-title" id="projectsTitle"></h2>
-          <p class="wander-sub" id="projectsSub"></p>
-        </div>
-        <div class="wander-viewport">
-          <div class="wander-track" id="projectsTrack"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel" id="panel-wander">
-      <div class="wander-inner">
-        <div class="wander-head">
-          <h2 class="wander-title" id="wanderTitle"></h2>
-          <p class="wander-sub" id="wanderSub"></p>
-        </div>
-        <div class="wander-viewport">
-          <div class="wander-track" id="wanderTrack"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <button class="page-arrow page-arrow-left" id="arrowPrev" aria-label="上一页"></button>
-  <button class="page-arrow page-arrow-right" id="arrowNext" aria-label="下一页"></button>
-
-  <audio id="bgm" loop preload="auto"></audio>
-
-  <script src="js/config.js"></script>
-  <script src="js/render.js"></script>
-  <script src="js/loader.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/carousel.js"></script>
-  <script src="js/main.js"></script>
+    </div>
+  </dialog>
 </body>
 </html>

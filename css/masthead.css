@@ -1,0 +1,98 @@
+/* Sticky header: reading progress, brand and section links. */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 18px 3vw;
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.masthead__brand {
+  font: 900 1.35rem var(--font-display);
+  letter-spacing: -.04em;
+}
+
+.masthead__nav {
+  display: flex;
+  gap: 20px;
+  justify-self: end;
+  font: 10px var(--font-mono);
+  text-transform: uppercase;
+}
+
+.masthead__album {
+  padding: 0;
+  border: 0;
+  background: none;
+  text-transform: inherit;
+  opacity: .48;
+  cursor: pointer;
+}
+
+.masthead__nav a:hover,
+.masthead__album:hover {
+  color: var(--red);
+  opacity: 1;
+}
+
+html:not(.js) .masthead__album {
+  display: none;
+}
+
+.progress {
+  display: grid;
+  grid-template-columns: 54px 1fr 30px;
+  gap: 10px;
+  align-items: center;
+  width: min(220px, 24vw);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: 10px var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+}
+
+.progress:hover {
+  color: var(--red);
+}
+
+.progress__rail {
+  height: 2px;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.progress__fill {
+  display: block;
+  height: 100%;
+  background: var(--red);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+  will-change: transform;
+}
+
+.progress__value {
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 820px) {
+  .masthead {
+    grid-template-columns: 1fr auto;
+  }
+
+  .masthead__nav {
+    display: none;
+  }
+
+  .progress {
+    grid-template-columns: 44px 1fr 26px;
+    width: 150px;
+  }
+}

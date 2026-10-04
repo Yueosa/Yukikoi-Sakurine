@@ -1,23 +1,84 @@
-/* Design tokens, reset and document defaults */
+/* Design tokens, reset and shared element defaults. */
 :root {
-  --sky-blue: #c5d5f7;
-  --dream-white: #f6f6f6;
-  --gray-purple: #d1cde3;
-  --petal-blue: #6c90c4;
-  --orange-yellow: #f3b969;
-  --ribbon-blue: #5a9bc6;
-  --font: 'Noto Sans JP', sans-serif;
+  --paper: #f3efe7;
+  --ink: #181712;
+  --red: #e43c4a;
+  --blue: #3453f4;
+  --soft: #d7d0c3;
+  --muted: #777064;
+  --night: #11100f;
+  --night-line: #4a4540;
+  --night-muted: #8d8680;
+
+  --font-serif: "Noto Serif SC", "Songti SC", serif;
+  --font-display: Georgia, serif;
+  --font-mono: ui-monospace, monospace;
+  --ease-out: cubic-bezier(.17, .79, .2, 1);
+  --masthead-height: 61px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--masthead-height);
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
-  font-family: var(--font);
-  width: 100vw;
-  height: 100vh;
+  margin: 0;
+  background: var(--paper);
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Root states toggled by the prelude and the album; the stable gutter keeps layout still. */
+.is-intro,
+.is-album-open {
   overflow: hidden;
-  background: transparent;
-  color: #333;
 }

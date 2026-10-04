@@ -1,0 +1,206 @@
+/* First screen: the name, the quote with the album entrance, the pulse poster and socials. */
+.cover {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  min-height: calc(100svh - var(--masthead-height));
+  border-bottom: 1px solid var(--ink);
+}
+
+.cover__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6vw 4vw 4vw;
+  border-right: 1px solid var(--ink);
+}
+
+.cover__kicker {
+  color: var(--red);
+  font: 11px var(--font-mono);
+  letter-spacing: .2em;
+}
+
+.cover__title {
+  margin: 8vh 0 5vh;
+  font-size: clamp(5rem, 15vw, 13rem);
+  line-height: .7;
+  letter-spacing: -.085em;
+}
+
+.cover__title i {
+  display: block;
+  color: var(--blue);
+  font-weight: 400;
+}
+
+.quote {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 25px;
+  align-items: start;
+  max-width: 760px;
+  padding-bottom: 30px;
+}
+
+.quote__avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.quote__avatar img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  object-fit: cover;
+  transition: filter .25s, transform .25s;
+}
+
+.quote__avatar::after {
+  content: "FRAGMENTS ↗";
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  color: var(--red);
+  font: 8px var(--font-mono);
+  letter-spacing: .08em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 5px);
+  transition: opacity .25s, transform .25s;
+}
+
+.quote__avatar:is(:hover, :focus-visible) img {
+  filter: saturate(.25);
+  transform: scale(.96);
+}
+
+.quote__avatar:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+html:not(.js) .quote__avatar {
+  pointer-events: none;
+}
+
+.quote__text {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  line-height: 1.8;
+}
+
+.quote__by {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.cover__aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.pulse {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 52%;
+  overflow: hidden;
+  background: var(--red);
+}
+
+.pulse svg {
+  position: absolute;
+  width: 175%;
+  height: 118%;
+  transform: rotate(-12deg);
+}
+
+.pulse__signal {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--signal-segment, .22px) var(--signal-gap, .78px);
+  stroke-dashoffset: var(--signal-segment, .22px);
+  opacity: 0;
+}
+
+.pulse[data-state="playing"] .pulse__signal {
+  filter: drop-shadow(0 0 5px rgb(255 255 255 / .58));
+  animation: signal-travel var(--signal-duration, 5.6s) linear forwards;
+}
+
+.pulse.is-paused .pulse__signal {
+  animation-play-state: paused;
+}
+
+/* --signal-* must be lengths: Chrome only steps between calc()s of unitless dash values. */
+@keyframes signal-travel {
+  0% { stroke-dashoffset: var(--signal-segment); opacity: 0; }
+  7% { stroke-dashoffset: calc(var(--signal-segment) * .72); opacity: 1; }
+  92% { stroke-dashoffset: calc(var(--signal-gap) * -.9); opacity: 1; }
+  100% { stroke-dashoffset: calc(var(--signal-gap) * -1); opacity: 0; }
+}
+
+.socials {
+  display: grid;
+  flex: 1;
+  padding: 34px;
+}
+
+.socials li {
+  display: grid;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--soft);
+  font: 12px var(--font-mono);
+}
+
+.socials a:hover {
+  padding-left: 10px;
+  color: var(--blue);
+}
+
+@media (max-width: 820px) {
+  .cover {
+    grid-template-columns: 1fr;
+  }
+
+  .cover__copy {
+    min-height: 80svh;
+    border-right: 0;
+  }
+
+  .cover__aside {
+    border-top: 1px solid var(--ink);
+  }
+
+  .quote {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .quote__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pulse {
+    min-height: 300px;
+  }
+}
