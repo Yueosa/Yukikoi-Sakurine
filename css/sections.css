@@ -126,6 +126,13 @@
   border-left: 1px solid var(--ink);
 }
 
+.site__link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .site__name {
   font-size: 2rem;
 }
@@ -133,6 +140,28 @@
 .site__status {
   color: var(--red);
   font: 10px var(--font-mono);
+}
+
+.site--live {
+  transition: background-color .25s, color .25s;
+}
+
+.site--live:hover,
+.site--live:focus-within {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site__status--live {
+  color: var(--blue);
+  transition: color .25s, font-size .25s var(--ease-out);
+}
+
+.site--live:hover .site__status--live,
+.site--live:focus-within .site__status--live {
+  color: #93a5ff;
+  font-size: 13px;
+  animation: breathe 1.8s ease-in-out infinite;
 }
 
 .site__status::before {

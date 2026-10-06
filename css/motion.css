@@ -7,6 +7,11 @@
   from { opacity: 0; transform: translateX(var(--slide, 24px)); }
 }
 
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
 .has-entered .masthead {
   --rise: -100%;
   animation: rise .8s var(--ease-out) .15s backwards;
