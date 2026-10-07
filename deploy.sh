@@ -12,7 +12,6 @@ readonly NGINX_AVAILABLE="/etc/nginx/sites-available/$NGINX_NAME"
 readonly NGINX_ENABLED="/etc/nginx/sites-enabled/$NGINX_NAME"
 readonly DEFAULT_REPO="https://github.com/Yueosa/Yukikoi-Sakurine.git"
 readonly DEFAULT_BRANCH="main"
-readonly RAW_BASE="https://raw.githubusercontent.com/Yueosa/Yukikoi-Sakurine"
 
 C_RED=$'\033[31m'; C_GREEN=$'\033[32m'; C_YELLOW=$'\033[33m'
 C_BOLD=$'\033[1m'; C_DIM=$'\033[2m'; C_NC=$'\033[0m'
@@ -279,7 +278,9 @@ renew_certificate() {
 remote_version_file() {
     local output="$1"
     if [[ "$REPO_URL" == *github.com/Yueosa/Yukikoi-Sakurine* ]]; then
-        curl -fsSL "$RAW_BASE/$BRANCH/.version?time=$(date +%s)" -o "$output"
+        # raw.githubusercontent.com 的分支路径会被 CDN 缓存旧内容，走 API 拿实时文件
+        curl -fsSL -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/Yueosa/Yukikoi-Sakurine/contents/.version?ref=$BRANCH" -o "$output"
     else
         local tmp
         tmp="$(mktemp -d)"
